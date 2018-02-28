@@ -27,7 +27,7 @@ import ShapeMaker from './other/shape'
             }, false);
 
             audio.addEventListener('canplaythrough',function(){
-                this.loop();
+                this.loopFire();
             }.bind(this));
             music.onclick = function(){
                 const cla =  this.getAttribute('class');
@@ -128,10 +128,12 @@ import ShapeMaker from './other/shape'
                 time: 600,
                 showWords: false,
             }, Config.fireOpt);
+            this.fireworkCtx.fillStyle = Config.skyColor.replace('{lightness}', 5 + this.skyColor.lightness * 15).replace('{hue}' , this.skyColor.hue);
+            this.fireworkCtx.fillRect(0,0,this.width,this.height);
         }
         init(){
             this.shapeMaker = new ShapeMaker(this.width, this.height);
-            // this.loop();
+            this.loop();
 
 
         }
@@ -143,12 +145,16 @@ import ShapeMaker from './other/shape'
 
             // 渲染飘落装饰
             this.renderParticle();
-            // console.log(this.musicAudio.readyState)
+
+
+
+
+        }
+        loopFire(){
+            requestAnimationFrame(this.loopFire.bind(this));
+
             this.controlFire();
             this.renderFireworks();
-
-            // this.showFireworkWords();
-
         }
         renderParticle(){
             this.ctx.clearRect(0,0,this.width,this.height);

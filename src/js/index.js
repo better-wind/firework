@@ -191,8 +191,8 @@ import ShapeMaker from './other/shape'
             if(this.fireOpt.time % 400 == 0){
                 this.createDenseFire();
                 //重置屏幕
-                this.fireworkCtx.fillStyle = `hsla(${this.skyColor.hue}, 60%, ${this.skyColor.lightness}%, 1)`
-                this.fireworkCtx.fillRect(0,0,this.width,this.height);
+                // this.fireworkCtx.fillStyle = `hsla(${this.skyColor.hue}, 60%, ${this.skyColor.lightness}%, 1)`
+                // this.fireworkCtx.fillRect(0,0,this.width,this.height);
 
             }
 

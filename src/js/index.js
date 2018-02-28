@@ -120,7 +120,32 @@ import ShapeMaker from './other/shape'
                     txt:'ฅ˙o˙ฅ',
                     size:70
                 },
+                {
+                    txt:'BestWishes',
+                    size:40
+                },
+                {
+                    txt: '❤',
+                    size:140
+                },
+                {
+                    txt:'平平安安',
+                    size:70
+                },
+                {
+                    txt: '❤ ❤',
+                    size:100
+                },
+                {
+                    txt:'幸福康宁',
+                    size:70
+                },
+                {
+                    txt:'End',
+                    size:90
+                }
             ]
+            
             //烟花的数组
             this.fireworks = [];
             this.fireworkTime = Utils.random(...Config.fireworkInterval) | 0;

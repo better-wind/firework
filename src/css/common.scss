@@ -50,7 +50,7 @@ body{
     color: rgba(255,255,255,.6);
   }
   .on{
-    -webkit-animation:play 1.5s linear both infinite;
+    animation:play 1.5s linear both infinite;
     .music-icon-on{
       display: block;
     }
@@ -67,7 +67,7 @@ body{
     }
   }
 }
-@-webkit-keyframes play{
-  0%{transform: rotate(0deg);-webkit-transform: rotate(0deg);}
-  100%{transform: rotate(360deg);-webkit-transform: rotate(360deg);}
+@keyframes play{
+  0%{transform: rotate(0deg);}
+  100%{transform: rotate(360deg);}
 }

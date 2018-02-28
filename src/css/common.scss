@@ -48,6 +48,10 @@ body{
   i{
     font-size: 36px;
     color: rgba(255,255,255,.6);
+    transition: display 300ms ease;
+  }
+  >div{
+    display: none;
   }
   .on{
     animation:play 1.5s linear both infinite;

@@ -27,6 +27,7 @@ import ShapeMaker from './other/shape'
             }, false);
 
             audio.addEventListener('canplaythrough',function(){
+                music.style.display = 'block'
                 this.loopFire();
             }.bind(this));
             music.onclick = function(){
@@ -128,8 +129,10 @@ import ShapeMaker from './other/shape'
                 time: 600,
                 showWords: false,
             }, Config.fireOpt);
-            this.fireworkCtx.fillStyle = Config.skyColor.replace('{lightness}', 5 + this.skyColor.lightness * 15).replace('{hue}' , this.skyColor.hue);
+
+            this.fireworkCtx.fillStyle = `hsla(${this.skyColor.hue}, 60%, ${this.skyColor.lightness}%, 1)`
             this.fireworkCtx.fillRect(0,0,this.width,this.height);
+
         }
         init(){
             this.shapeMaker = new ShapeMaker(this.width, this.height);

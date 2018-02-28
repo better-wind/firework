@@ -17,17 +17,18 @@ import ShapeMaker from './other/shape'
         }
         initAudio(){
             const audio = new Audio();
-            audio.src = require('@/audio/1.mp3');
+            audio.src = require('@/audio/lightPursuer.mp3');
             audio.loop = true;
             audio.play();
             audio.volume = 0.5;
             const music = document.querySelector('#music');
-
             document.addEventListener("WeixinJSBridgeReady", function () {
                 audio.play();
             }, false);
 
-
+            audio.addEventListener('canplaythrough',function(){
+                this.loop();
+            }.bind(this));
             music.onclick = function(){
                 const cla =  this.getAttribute('class');
                 if(cla == 'on'){
@@ -68,44 +69,55 @@ import ShapeMaker from './other/shape'
             this.fireWords = [
                 {
                     txt:'3',
-                    size:100
+                    size:120
                 },
                 {
                     txt:'2',
-                    size:100
+                    size:130
                 },
                 {
                     txt:'1',
-                    size:100
+                    size:140
                 },
-
                 {
-                    txt:'ฅ(๑˙o˙๑)ฅ',
+                    txt:'ฅ˙o˙ฅ',
                     size:70
+                },
+                {
+                    txt:'薇',
+                    size:120
+                },
+                {
+                    txt:'❤',
+                    size:120
                 },
                 {
                     txt:'VV',
                     size:90
                 },
                 {
-                    txt:'I',
-                    size:90
+                    txt:'I ❤ U',
+                    size:60
                 },
                 {
-                    txt:'LOVE',
-                    size:90
-                },
-                {
-                    txt:'U',
-                    size:90
-                },
-                {
-                    txt:'ฅ(๑˙o˙๑)ฅ',
+                    txt:'ILOVEU',
                     size:70
                 },
                 {
-                    txt:'❤',
+                    txt:'❤ ❤ ❤',
                     size:90
+                },
+                {
+                    txt:'❤❤❤❤❤',
+                    size:80
+                },
+                {
+                    txt:'❤',
+                    size:140
+                },
+                {
+                    txt:'ฅ˙o˙ฅ',
+                    size:70
                 },
             ]
             //烟花的数组
@@ -119,7 +131,7 @@ import ShapeMaker from './other/shape'
         }
         init(){
             this.shapeMaker = new ShapeMaker(this.width, this.height);
-            this.loop();
+            // this.loop();
 
 
         }
@@ -131,7 +143,7 @@ import ShapeMaker from './other/shape'
 
             // 渲染飘落装饰
             this.renderParticle();
-
+            // console.log(this.musicAudio.readyState)
             this.controlFire();
             this.renderFireworks();
 
@@ -151,10 +163,10 @@ import ShapeMaker from './other/shape'
         controlFire(){
             --this.fireOpt.time;
 
-            if(this.fireOpt.time <= 550){
+            if(this.fireOpt.time <= 350){
                 this.showFireworkWords();
             }
-            if(this.fireOpt.time % 400  == 0){
+            if(this.fireOpt.time % 450  == 0){
                 this.fireworks.push(new Firework({
                     width:this.width,
                     height:this.height,
@@ -167,7 +179,7 @@ import ShapeMaker from './other/shape'
                 }));
             }
 
-            if(this.fireOpt.time % 600 == 0){
+            if(this.fireOpt.time % 400 == 0){
                 this.createDenseFire();
                 //重置屏幕
                 this.fireworkCtx.fillStyle = `hsla(${this.skyColor.hue}, 60%, ${this.skyColor.lightness}%, 1)`

@@ -24,7 +24,7 @@ const config = {
     fireworkInterval:[60, 240],// 烟花产生间隔 //---不建议改动
     skyColor:'hsla({hue}, 60%, {lightness}%, 0.2)',
     fireOpt: {
-        wordInterval: 600, //每段话出现的间隔时间
+        wordInterval: 400, //每段话出现的间隔时间
     },
     shape:{
         mini: 1,   //组成字的粒子数  mini越大 粒子数越少

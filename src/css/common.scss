@@ -21,25 +21,53 @@ body{
   }
 
 }
-#music{
+@font-face {
+  font-family: 'iconfont';  /* project id 576058 */
+  src: url('//at.alicdn.com/t/font_576058_n8545srnyntrzfr.eot');
+  src: url('//at.alicdn.com/t/font_576058_n8545srnyntrzfr.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_576058_n8545srnyntrzfr.woff') format('woff'),
+  url('//at.alicdn.com/t/font_576058_n8545srnyntrzfr.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_576058_n8545srnyntrzfr.svg#iconfont') format('svg');
+}
+[class*="music-icon-"], [class^=music-icon-] {
+  font-family:"iconfont" !important;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.music-wrap{
   width: 36px;
   height: 36px;
-  background-repeat: no-repeat;
-  background-size: 100%;
   position: absolute;
   z-index: 999;
   right: 10px;
   top: 14px;
-
+  text-align: center;
+  border-radius: 50%;
+  i{
+    font-size: 36px;
+    color: rgba(255,255,255,.6);
+  }
+  .on{
+    -webkit-animation:play 1.5s linear both infinite;
+    .music-icon-on{
+      display: block;
+    }
+    .music-icon-off{
+      display: none;
+    }
+  }
+  .off{
+    .music-icon-on{
+      display: none;
+    }
+    .music-icon-off{
+      display: block;
+    }
+  }
 }
 @-webkit-keyframes play{
   0%{transform: rotate(0deg);-webkit-transform: rotate(0deg);}
   100%{transform: rotate(360deg);-webkit-transform: rotate(360deg);}
-}
-.on{
-  background-image: url('/static/assets/img/musicon.png');
-  -webkit-animation:play 1.5s linear both infinite;
-}
-.off{
-  background-image: url('/static/assets/img/musicoff.png');
 }

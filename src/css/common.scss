@@ -1,0 +1,45 @@
+body{
+  margin: 0;
+}
+.fire-wrap{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  //background-color: rgba(0,0,0,.9);
+  canvas{
+    position: absolute;
+    top:0;
+    left:0;
+    &.heart{
+      z-index: 8;
+    }
+    &.fire-work{
+      z-index: 5;
+    }
+  }
+
+}
+#music{
+  width: 36px;
+  height: 36px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute;
+  z-index: 999;
+  right: 10px;
+  top: 14px;
+
+}
+@-webkit-keyframes play{
+  0%{transform: rotate(0deg);-webkit-transform: rotate(0deg);}
+  100%{transform: rotate(360deg);-webkit-transform: rotate(360deg);}
+}
+.on{
+  background-image: url('/static/assets/img/musicon.png');
+  -webkit-animation:play 1.5s linear both infinite;
+}
+.off{
+  background-image: url('/static/assets/img/musicoff.png');
+}
